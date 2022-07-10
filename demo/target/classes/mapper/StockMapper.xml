@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 用於指定當前的映射文件與哪個接口映射 -->
+<mapper namespace="com.example.demo.mapper.StockMapper">
+
+    <!-- 自訂映射規則 -->
+    <!--
+        id: 分配映射唯一的 id, 對應 resultMap 的 id
+        type: 查詢結果與實體類的映射
+    -->
+    <resultMap id="AllStockRecord" type="com.example.demo.entity.StockEntity">
+        <!-- 將資料表與實體類名稱不同者綁定, 相同者可省略, 惟主鍵不可省略(將結果集對應至唯一對象) -->
+        <id column="ID" property="id"></id>
+        <result column="TRADE_DATE" property="tradeDate"></result>
+    </resultMap>
+
+    <!--
+         id: 對應映射方法的名稱
+         useGeneratedKeys: 開啟自動遞增
+         keyProperty: 指定自動遞增欄位 (欄位名稱為Java的映射類屬性)
+    -->
+    <!-- 參數式指令的變數名稱需與 Entity 相同才能自動注入 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO stock_record
+            (STOCK, TRADE_DATE, VOLUME, PRICE)
+        VALUES
+            (#{stock}, #{tradeDate}, #{volume}, #{price})
+    </insert>
+
+    <!--
+        resultType: 當查詢結果與 Entity 完全相同時使用
+        resultMap: 另行指定結果集的映射規則
+     -->
+    <select id="selectAllRecord" resultMap="AllStockRecord">
+        SELECT ID, STOCK, TRADE_DATE, VOLUME, PRICE
+        FROM stock_record
+    </select>
+
+</mapper>

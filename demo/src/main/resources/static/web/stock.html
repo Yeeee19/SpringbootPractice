@@ -2,22 +2,65 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Stock</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <title>Stock</title>
     </head>
 
     <body>
+    <table class="tb" id="stocktb">
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>股票代號</th>
+                <th>交易日期</th>
+                <th>交易量</th>
+                <th>價格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>0050</td>
+                <td>2022/07/01</td>
+                <td>1,000</td>
+                <td>-100,000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>0050</td>
+                <td>2022/07/02</td>
+                <td>-1,000</td>
+                <td>105,000</td>           
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">總金額</th>
+                <td>$ 5,000</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <br>
     <form id="form-insert">
-        股票代號:<br>
+        股票代號:
+        <br>
         <input type="text" name="stock">
-        <br><br>
-        交易日期:<br>
+        <br>
+        <br>
+        交易日期:
+        <br>
         <input type="text" name="tradeDate">
-        <br><br>
-        交易量:<br>
+        <br>
+        <br>
+        交易量:
+        <br>
         <input type="text" name="volume">
-        <br><br>
-        價格:<br>
+        <br>
+        <br>
+        價格:
+        <br>
         <input type="text" name="price">
     </form>
 

@@ -1,44 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <title>Stock</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>Stock</title>
+</head>
 
-    <body>
-    <table class="tb" id="stocktb">
+<body>
+
+    <table class="tb">
         <thead>
-            <tr>
-                <th>編號</th>
-                <th>股票代號</th>
-                <th>交易日期</th>
-                <th>交易量</th>
-                <th>價格</th>
-            </tr>
+        <tr>
+            <th>編號</th>
+            <th>股票代號</th>
+            <th>交易日期</th>
+            <th>交易量</th>
+            <th>價格</th>
+        </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>0050</td>
-                <td>2022/07/01</td>
-                <td>1,000</td>
-                <td>-100,000</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>0050</td>
-                <td>2022/07/02</td>
-                <td>-1,000</td>
-                <td>105,000</td>           
-            </tr>
+        <tbody id="tbody-stock">
         </tbody>
         <tfoot>
-            <tr>
-                <td colspan="4">總金額</th>
-                <td>$ 5,000</td>
-            </tr>
+        <tr id="tr-tfoot-stock">
+            <td colspan="4">總金額</th>
+        </tr>
         </tfoot>
     </table>
     <br>
@@ -66,26 +52,10 @@
 
     <br>
     <input id="btn-insert" type="button" value="新增資料">
-    </body>
 
-    <script type="text/javascript">
-        $("#btn-insert").click(function(){
-            $.ajax({
-                url: "/stock/add",
-                type: "POST",
-                data: $("#form-insert").serialize(),
-                dataType: "JSON",
-                success: function(json){
-                    if(json.state == 200){
-                        alert("新增資料成功");
-                    } else {
-                        alert("新增資料失敗");
-                    }
-                },
-                error: function(xhr){
-                    alert("未知的錯誤\n" + xhr.status);
-                }
-            });
-        });
-    </script>
+
+    <script src="../js/BackEnd.js"></script>
+    <script src="../js/InputFilter.js"></script>
+    <script src="../js/TableRowDebounce.js"></script>
+</body>
 </html>

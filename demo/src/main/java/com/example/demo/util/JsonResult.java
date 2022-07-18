@@ -23,7 +23,7 @@ public class JsonResult<E> implements Serializable {
 
     public JsonResult(Integer state, E Data){
         this.state = state;
-        this.data = data;
+        this.data = Data;
     }
 
     public Integer getState() {

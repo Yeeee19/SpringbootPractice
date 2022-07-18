@@ -2,12 +2,14 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.StockEntity;
 import com.example.demo.service.IStockService;
-import com.example.demo.service.ex.InsertException;
 import com.example.demo.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 //@RestController = @Controller + @ResponseBody
@@ -25,16 +27,9 @@ public class StockController extends BaseController{
     }
 
     @RequestMapping("findall")
-    public List<StockEntity> findAllRecord(){
+    public JsonResult<List<StockEntity>> findAllRecord(){
         List<StockEntity> result = stockService.findAllRecord();
-        return result;
+        return new JsonResult<>(OK, result);
     }
 
-    /*
-    @RequestMapping("findall")
-    public JsonResult<List> findAllRecord(){
-        List<StockEntity> result = stockService.findAllRecord();
-        return new JsonResult<List>(OK, result);
-    }
-    */
 }

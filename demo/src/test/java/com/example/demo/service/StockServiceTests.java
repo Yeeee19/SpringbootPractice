@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.List;
 
 // @SpringBootTest 標註當前的類是測試類, 不會隨著專案打包
@@ -18,7 +19,10 @@ import java.util.List;
 public class StockServiceTests {
 
     @Autowired
-    private IStockService stockService ;
+    private IStockService stockService;
+
+    @Autowired
+    private StockMapper stockMapper;
 
     @Test
     public void addRecord(){
@@ -42,5 +46,15 @@ public class StockServiceTests {
         for(StockEntity s : result){
             System.out.println(s);
         }
+    }
+
+    @Test
+    public void updateById(){
+        StockEntity stockEntity = new StockEntity();
+        stockEntity.setId(4);
+        stockEntity.setStock("2330");
+        stockEntity.setVolume(40);
+        stockEntity.setPrice(-19917);
+        stockMapper.updateById(stockEntity);
     }
 }

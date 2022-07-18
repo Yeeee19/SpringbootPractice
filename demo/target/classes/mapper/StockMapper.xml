@@ -39,4 +39,10 @@
         FROM stock_record
     </select>
 
+    <update id="updateById">
+        UPDATE stock_record
+        SET STOCK = #{stock}, TRADE_DATE = #{tradeDate}, VOLUME = #{volume}, PRICE = #{price}
+        WHERE ID = #{id}
+    </update>
+
 </mapper>

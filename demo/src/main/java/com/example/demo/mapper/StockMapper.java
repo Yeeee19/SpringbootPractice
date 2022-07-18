@@ -1,7 +1,9 @@
 package com.example.demo.mapper;
 
 import com.example.demo.entity.StockEntity;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface StockMapper {
@@ -14,4 +16,6 @@ public interface StockMapper {
     public Integer insert(StockEntity stock);
 
     public List<StockEntity> selectAllRecord();
+
+    public Integer updateById(StockEntity stockEntity);
 }

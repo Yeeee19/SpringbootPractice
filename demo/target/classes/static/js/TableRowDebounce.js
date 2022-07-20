@@ -2,10 +2,6 @@ var debounceMap = new Map();
 var delay = 1000;
 
 $("#tbody-stock tr").on("click", function(){
-    /**
-     * 1. 如果 Map 中不存在, 註冊一個倒數, 倒數結束後執行更新, 並從 Map 中移除
-     * 2. 如果已經存在, 重新倒數, 倒數結束後執行更新, 並從 Map 中移除
-     */
     if(!debounceMap.has($(this).children('td').html())){
         debounceMap.set($(this).children('td').html(), 
                         setTimeout(() => { 

@@ -32,4 +32,9 @@ public class StockController extends BaseController{
         return new JsonResult<>(OK, result);
     }
 
+    @RequestMapping("update")
+    public JsonResult<Void> update(StockEntity stockEntity){
+        stockService.updateById(stockEntity);
+        return new JsonResult<>(OK);
+    }
 }

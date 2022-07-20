@@ -44,4 +44,14 @@ public class StockMapperTests {
             System.out.println(s);
         }
     }
+
+    @Test
+    public void updateById(){
+        StockEntity stockEntity = new StockEntity();
+        stockEntity.setId(4);
+        stockEntity.setStock("2330");
+        stockEntity.setVolume(40);
+        stockEntity.setPrice(-19917);
+        stockMapper.updateById(stockEntity);
+    }
 }

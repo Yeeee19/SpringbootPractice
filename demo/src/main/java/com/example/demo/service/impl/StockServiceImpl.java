@@ -5,6 +5,7 @@ import com.example.demo.mapper.StockMapper;
 import com.example.demo.service.IStockService;
 import com.example.demo.service.ex.DataNotFoundException;
 import com.example.demo.service.ex.InsertException;
+import com.example.demo.service.ex.UpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +36,14 @@ public class StockServiceImpl implements IStockService {
         }
 
         return result;
+    }
+
+    @Override
+    public void updateById(StockEntity stock){
+        Integer rows = stockMapper.updateById(stock);
+
+        if(rows != 1){
+            throw new UpdateException("更新失敗");
+        }
     }
 }

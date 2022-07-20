@@ -32,30 +32,29 @@
     <form id="form-insert">
         股票代號:
         <br>
-        <input type="text" name="stock">
+        <input type="text" id="stock" name="stock" maxlength="10" onkeyup="alphabetAndNumberOnlyFilter(this)">
         <br>
         <br>
         交易日期:
         <br>
-        <input type="text" name="tradeDate">
+        <input type="date" id="tradeDate" name="tradeDate" max="2999-12-31">
         <br>
         <br>
         交易量:
         <br>
-        <input type="text" name="volume">
+        <input type="number" id="volume" name="volume" value="0">
         <br>
         <br>
         價格:
         <br>
-        <input type="text" name="price">
+        <input type="number" id="price" name="price" value="0">
     </form>
 
     <br>
     <input id="btn-insert" type="button" value="新增資料">
 
-
     <script src="../js/BackEnd.js"></script>
     <script src="../js/InputFilter.js"></script>
-    <script src="../js/TableRowDebounce.js"></script>
+
 </body>
 </html>

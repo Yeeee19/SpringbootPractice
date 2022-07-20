@@ -1,2 +1,14 @@
 com\example\demo\controller\StockController.class
 com\example\demo\DemoApplication.class
+com\example\demo\entity\StockEntity.class
+com\example\demo\service\IStockService.class
+com\example\demo\config\IndexInterceptorConfigurer.class
+com\example\demo\mapper\StockMapper.class
+com\example\demo\aop\TimerAspect.class
+com\example\demo\controller\BaseController.class
+com\example\demo\service\ex\ServiceException.class
+com\example\demo\service\impl\StockServiceImpl.class
+com\example\demo\interceptor\IndexInterceptor.class
+com\example\demo\service\ex\DataNotFoundException.class
+com\example\demo\util\JsonResult.class
+com\example\demo\service\ex\InsertException.class

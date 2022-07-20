@@ -17,5 +17,5 @@ public interface IStockService {
      */
     List<StockEntity> findAllRecord();
 
-    //void updateById(Integer id, StockEntity stock);
+    void updateById(StockEntity stock);
 }

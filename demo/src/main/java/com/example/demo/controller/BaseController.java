@@ -4,6 +4,7 @@ package com.example.demo.controller;
 import com.example.demo.service.ex.DataNotFoundException;
 import com.example.demo.service.ex.InsertException;
 import com.example.demo.service.ex.ServiceException;
+import com.example.demo.service.ex.UpdateException;
 import com.example.demo.util.JsonResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -23,6 +24,9 @@ public class BaseController {
         } else if(e instanceof DataNotFoundException){
             result.setState(4001);
             result.setMessage("無指定資料");
+        } else if(e instanceof UpdateException){
+            result.setState(4002);
+            result.setMessage("更新失敗");
         }
 
         return result;
